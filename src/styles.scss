@@ -1,0 +1,55 @@
+.formContainer{
+    background-color: lightblue;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .formWrapper{
+        background-color: azure;
+        padding: 20px 60px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+
+        .logo{
+            color: plum;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        .title{
+            color: blueviolet;
+            font-size: 18px;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .input{
+                padding: 15px;
+                border: none;
+                width: 260px;
+                border-bottom: 1px solid azure;
+            }
+
+            .button{
+                background-color: #7b96ec;
+                color: white;
+                padding: 10px;
+                font-weight: bold;
+                border: none;
+                cursor: pointer;
+
+            }
+        }
+        .p{
+            color: #5d5b8d;
+            font-size: 13px;
+            margin: 10px;
+            
+        }
+    }
+}
