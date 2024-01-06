@@ -5,26 +5,28 @@ import { db } from "../firebase";
 import Message from "./message";
 
 const Messages = () => {
-    const [msgs,setMsgs] = useState([])
-    const data = useContext(ChatContext);
+  const [messages, setMessages] = useState([]);
+  const { data } = useContext(ChatContext);
 
-    useEffect(()=>{
-        const unSub = onSnapshot(doc(db,"chats",data.chatId),(doc)=>{
-            doc.exists() && setMsgs(doc.data().msgs)
-        })
+  useEffect(() => {
+    const unSub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
+      doc.exists() && setMessages(doc.data().messages);
+    });
 
-        return () => {
-            unSub();
-        }
-    }, [data.chatId])
-    return(
-        <div className="msgs">
-            {msgs.map((m)=>(
-                <Message message={m} key={m.id}/>
-            ))}
-            <Message/>
-        </div>
-    )
-}
+    return () => {
+      unSub();
+    };
+  }, [data.chatId]);
+
+  console.log(messages)
+
+  return (
+    <div className="msgs">
+      {messages.map((m) => (
+        <Message message={m} key={m.id} />
+      ))}
+    </div>
+  );
+};
 
 export default Messages;
